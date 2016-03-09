@@ -17,7 +17,11 @@ class ViewController: NSViewController {
     @IBOutlet var queryOut: NSTextView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        if #available(OSX 10.10, *) {
+            super.viewDidLoad()
+        } else {
+            // Fallback on earlier versions
+        }
         queryOut.editable = false
 
         // Do any additional setup after loading the view.
