@@ -32,6 +32,10 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    
+    @IBAction func clearOutput(sender: NSBundle) {
+        queryOut.textStorage?.mutableString.setString("")
+    }
 
     @IBAction func queryButton(sender: AnyObject) {
         // NSLog("We've hit a button!")
@@ -47,41 +51,39 @@ class ViewController: NSViewController {
         // Log new string
         NSLog("Sending query: %@", newQuery)
         
-        // Wrap in single quotes
-        let newCommand = ("\'" + newQuery + "\'" )
-        // Log new string
-        NSLog("New Command: %@", newCommand)
-        
         // Add query to textbox
         setqueryOutput("Q: " + newQuery + "\n")
         
         // Send query to shell and get output
-        let (shelloutput, _) = shell("/bin/bash", "-c", "echo " + newCommand + " | " + qnaPath)
+        let shelloutput = shell(newQuery)
         // Set text view to output
         setqueryOutput(shelloutput)
         
-        NSLog("output: %@", shelloutput)
+        NSLog("Output: %@", shelloutput)
 
     }
 
-    func shell(args: String...) -> (String, Int32) {
+    func shell(relevance: String) -> String {
         let task = NSTask()
-        let pipe = NSPipe()
+        let inpipe = NSPipe()
+        let outpipe = NSPipe()
         
-        NSLog("%@", args)
+        //NSLog("%@", relevance)
         
-        task.launchPath = args[0]
-        task.arguments = Array(args[1..<args.count])
-        task.standardOutput = pipe
+        task.launchPath = qnaPath
+        task.standardInput = inpipe
+        task.standardOutput = outpipe
+
+        inpipe.fileHandleForWriting.writeData(relevance.dataUsingEncoding(NSUTF8StringEncoding)!)
+        inpipe.fileHandleForWriting.closeFile()
         
         task.launch()
         task.waitUntilExit()
-        
-        let outputdata = pipe.fileHandleForReading.readDataToEndOfFile()
+
+        let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
         let standardout = NSString(data: outputdata, encoding: NSUTF8StringEncoding)
         
-        //return (standardout as! String)
-        return (standardout as! String, task.terminationStatus)
+        return (standardout as! String)
     }
     
     func setqueryOutput(text: String = "") {
