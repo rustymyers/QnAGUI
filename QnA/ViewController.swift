@@ -11,7 +11,7 @@ import Cocoa
 import Foundation
 
 class ViewController: NSViewController {
-    var qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA"
+    var qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA" //+ " -showtypes "
     
     @IBOutlet weak var queryBar: NSTextField!
     @IBOutlet var queryOut: NSTextView!
@@ -22,22 +22,22 @@ class ViewController: NSViewController {
         } else {
             // Fallback on earlier versions
         }
-        queryOut.editable = false
+        queryOut.isEditable = false
 
         // Do any additional setup after loading the view.
     }
 
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
     
-    @IBAction func clearOutput(sender: NSBundle) {
+    @IBAction func clearOutput(_ sender: Bundle) {
         queryOut.textStorage?.mutableString.setString("")
     }
 
-    @IBAction func queryButton(sender: AnyObject) {
+    @IBAction func queryButton(_ sender: AnyObject) {
         // NSLog("We've hit a button!")
         if queryBar.stringValue == "" {
             NSLog("Blank String")
@@ -49,7 +49,7 @@ class ViewController: NSViewController {
             return
         }
         // Log new string
-        NSLog("Sending query: %@", newQuery)
+        //NSLog("Sending query: %@", newQuery)
         
         // Add query to textbox
         setqueryOutput("Q: " + newQuery + "\n")
@@ -59,14 +59,14 @@ class ViewController: NSViewController {
         // Set text view to output
         setqueryOutput(shelloutput)
         
-        NSLog("Output: %@", shelloutput)
+        //NSLog("Output: %@", shelloutput)
 
     }
 
-    func shell(relevance: String) -> String {
-        let task = NSTask()
-        let inpipe = NSPipe()
-        let outpipe = NSPipe()
+    func shell(_ relevance: String) -> String {
+        let task = Process()
+        let inpipe = Pipe()
+        let outpipe = Pipe()
         
         //NSLog("%@", relevance)
         
@@ -74,20 +74,20 @@ class ViewController: NSViewController {
         task.standardInput = inpipe
         task.standardOutput = outpipe
 
-        inpipe.fileHandleForWriting.writeData(relevance.dataUsingEncoding(NSUTF8StringEncoding)!)
+        inpipe.fileHandleForWriting.write(relevance.data(using: String.Encoding.utf8)!)
         inpipe.fileHandleForWriting.closeFile()
         
         task.launch()
         task.waitUntilExit()
 
         let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
-        let standardout = NSString(data: outputdata, encoding: NSUTF8StringEncoding)
+        let standardout = NSString(data: outputdata, encoding: String.Encoding.utf8.rawValue)
         
         return (standardout as! String)
     }
     
-    func setqueryOutput(text: String = "") {
-        queryOut.textStorage?.mutableString.appendString(text)
+    func setqueryOutput(_ text: String = "") {
+        queryOut.textStorage?.mutableString.append(text)
         queryOut.scrollToEndOfDocument(self)
     }
 
