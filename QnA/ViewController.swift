@@ -11,7 +11,7 @@ import Cocoa
 import Foundation
 
 class ViewController: NSViewController {
-    var qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA"
+    var qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA" //+ " -showtypes "
     
     @IBOutlet weak var queryBar: NSTextField!
     @IBOutlet var queryOut: NSTextView!
@@ -22,18 +22,22 @@ class ViewController: NSViewController {
         } else {
             // Fallback on earlier versions
         }
-        queryOut.editable = false
+        queryOut.isEditable = false
 
         // Do any additional setup after loading the view.
     }
 
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
+    
+    @IBAction func clearOutput(_ sender: Bundle) {
+        queryOut.textStorage?.mutableString.setString("")
+    }
 
-    @IBAction func queryButton(sender: AnyObject) {
+    @IBAction func queryButton(_ sender: AnyObject) {
         // NSLog("We've hit a button!")
         if queryBar.stringValue == "" {
             NSLog("Blank String")
@@ -45,47 +49,45 @@ class ViewController: NSViewController {
             return
         }
         // Log new string
-        NSLog("Sending query: %@", newQuery)
-        
-        // Wrap in single quotes
-        let newCommand = ("\'" + newQuery + "\'" )
-        // Log new string
-        NSLog("New Command: %@", newCommand)
+        //NSLog("Sending query: %@", newQuery)
         
         // Add query to textbox
         setqueryOutput("Q: " + newQuery + "\n")
         
         // Send query to shell and get output
-        let (shelloutput, _) = shell("/bin/bash", "-c", "echo " + newCommand + " | " + qnaPath)
+        let shelloutput = shell(newQuery)
         // Set text view to output
         setqueryOutput(shelloutput)
         
-        NSLog("output: %@", shelloutput)
+        //NSLog("Output: %@", shelloutput)
 
     }
 
-    func shell(args: String...) -> (String, Int32) {
-        let task = NSTask()
-        let pipe = NSPipe()
+    func shell(_ relevance: String) -> String {
+        let task = Process()
+        let inpipe = Pipe()
+        let outpipe = Pipe()
         
-        NSLog("%@", args)
+        //NSLog("%@", relevance)
         
-        task.launchPath = args[0]
-        task.arguments = Array(args[1..<args.count])
-        task.standardOutput = pipe
+        task.launchPath = qnaPath
+        task.standardInput = inpipe
+        task.standardOutput = outpipe
+
+        inpipe.fileHandleForWriting.write(relevance.data(using: String.Encoding.utf8)!)
+        inpipe.fileHandleForWriting.closeFile()
         
         task.launch()
         task.waitUntilExit()
+
+        let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
+        let standardout = NSString(data: outputdata, encoding: String.Encoding.utf8.rawValue)
         
-        let outputdata = pipe.fileHandleForReading.readDataToEndOfFile()
-        let standardout = NSString(data: outputdata, encoding: NSUTF8StringEncoding)
-        
-        //return (standardout as! String)
-        return (standardout as! String, task.terminationStatus)
+        return (standardout as! String)
     }
     
-    func setqueryOutput(text: String = "") {
-        queryOut.textStorage?.mutableString.appendString(text)
+    func setqueryOutput(_ text: String = "") {
+        queryOut.textStorage?.mutableString.append(text)
         queryOut.scrollToEndOfDocument(self)
     }
 

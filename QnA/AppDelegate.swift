@@ -13,16 +13,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         NSLog("Starting App")
         
         // Create a FileManager instance
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         
         // Check if file exists, given its path
         // Example: http://stackoverflow.com/questions/30097521/messagebox-from-daemon-in-swift-os-x
-        if fileManager.fileExistsAtPath("/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA") {
+        if fileManager.fileExists(atPath: "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA") {
             print("File exists")
         } else {
             print("File not found")
@@ -34,10 +34,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-
+    // Quit the application when the window is closed
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
 }
 
