@@ -71,6 +71,7 @@ class ViewController: NSViewController {
         //NSLog("%@", relevance)
         
         task.launchPath = qnaPath
+        task.arguments = ["-showtypes"]
         task.standardInput = inpipe
         task.standardOutput = outpipe
 
