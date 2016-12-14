@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import QnA
+//@testable import QnA
 
 class QnATests: XCTestCase {
     

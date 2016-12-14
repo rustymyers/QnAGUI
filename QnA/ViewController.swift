@@ -11,7 +11,7 @@ import Cocoa
 import Foundation
 
 class ViewController: NSViewController {
-    var qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA" //+ " -showtypes "
+    var qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA"
     
     @IBOutlet weak var queryBar: NSTextField!
     @IBOutlet var queryOut: NSTextView!
@@ -74,12 +74,14 @@ class ViewController: NSViewController {
         task.arguments = ["-showtypes"]
         task.standardInput = inpipe
         task.standardOutput = outpipe
+        task.standardError = outpipe;
 
         inpipe.fileHandleForWriting.write(relevance.data(using: String.Encoding.utf8)!)
         inpipe.fileHandleForWriting.closeFile()
         
         task.launch()
-        task.waitUntilExit()
+        // Disabled for large returns
+        //task.waitUntilExit()
 
         let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
         let standardout = NSString(data: outputdata, encoding: String.Encoding.utf8.rawValue)
@@ -92,6 +94,4 @@ class ViewController: NSViewController {
         queryOut.scrollToEndOfDocument(self)
     }
 
-    
 }
-
