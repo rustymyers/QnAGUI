@@ -74,15 +74,15 @@ class ViewController: NSViewController {
         task.arguments = ["-showtypes"]
         task.standardInput = inpipe
         task.standardOutput = outpipe
-        task.standardError = outpipe;
+        task.standardError = outpipe
 
         inpipe.fileHandleForWriting.write(relevance.data(using: String.Encoding.utf8)!)
         inpipe.fileHandleForWriting.closeFile()
         
         task.launch()
         // Disabled for large returns
-        //task.waitUntilExit()
-
+        // task.waitUntilExit()
+        
         let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
         let standardout = NSString(data: outputdata, encoding: String.Encoding.utf8.rawValue)
         
