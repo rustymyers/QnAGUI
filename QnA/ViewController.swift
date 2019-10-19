@@ -11,7 +11,8 @@ import Cocoa
 import Foundation
 
 class ViewController: NSViewController {
-    var qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA"
+    // Create new QnA object
+    let qna = QnA.init()
     
     @IBOutlet weak var queryBar: NSTextField!
     @IBOutlet var queryOut: NSTextView!
@@ -22,23 +23,24 @@ class ViewController: NSViewController {
         } else {
             // Fallback on earlier versions
         }
-        queryOut.editable = false
-
+        queryOut.isEditable = false
+        
         // Do any additional setup after loading the view.
     }
 
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
     
-    @IBAction func clearOutput(sender: NSBundle) {
+    @IBAction func clearOutput(sender: Bundle) {
         queryOut.textStorage?.mutableString.setString("")
     }
 
+
     @IBAction func queryButton(sender: AnyObject) {
-        // NSLog("We've hit a button!")
+        //NSLog("We've hit a button!")
         if queryBar.stringValue == "" {
             NSLog("Blank String")
             return
@@ -52,43 +54,44 @@ class ViewController: NSViewController {
         NSLog("Sending query: %@", newQuery)
         
         // Add query to textbox
-        setqueryOutput("Q: " + newQuery + "\n")
+        setqueryOutput(text: "Q: " + newQuery + "\n")
         
-        // Send query to shell and get output
-        let shelloutput = shell(newQuery)
+        // Send query to QnA Object and get output
+        let shelloutput = qna.shell(relevance: newQuery)
         // Set text view to output
-        setqueryOutput(shelloutput)
+        setqueryOutput(text: shelloutput)
         
         NSLog("Output: %@", shelloutput)
 
     }
 
     func shell(relevance: String) -> String {
-        let task = NSTask()
-        let inpipe = NSPipe()
-        let outpipe = NSPipe()
+        let task = Process()
+        let inpipe = Pipe()
+        let outpipe = Pipe()
         
         //NSLog("%@", relevance)
-        
+        let qnaPath = qna.getQnAPath()
         task.launchPath = qnaPath
         task.standardInput = inpipe
         task.standardOutput = outpipe
 
-        inpipe.fileHandleForWriting.writeData(relevance.dataUsingEncoding(NSUTF8StringEncoding)!)
+        inpipe.fileHandleForWriting.write(relevance.data(using: String.Encoding.utf8)!)
         inpipe.fileHandleForWriting.closeFile()
         
         task.launch()
         task.waitUntilExit()
 
         let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
-        let standardout = NSString(data: outputdata, encoding: NSUTF8StringEncoding)
+        let standardout = NSString(data: outputdata, encoding: String.Encoding.utf8.rawValue)
         
-        return (standardout as! String)
+        return (standardout! as String)
     }
     
     func setqueryOutput(text: String = "") {
-        queryOut.textStorage?.mutableString.appendString(text)
+        queryOut.textStorage?.mutableString.append(text)
         queryOut.scrollToEndOfDocument(self)
+        queryOut.textColor = NSColor.controlTextColor
     }
 
     
