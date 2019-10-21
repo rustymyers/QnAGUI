@@ -11,6 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    let qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA"
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -22,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Check if file exists, given its path
         // Example: http://stackoverflow.com/questions/30097521/messagebox-from-daemon-in-swift-os-x
-        if fileManager.fileExists(atPath: "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA") {
+        if fileManager.fileExists(atPath: qnaPath) {
             print("File exists")
         } else {
             print("File not found")

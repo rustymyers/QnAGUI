@@ -13,9 +13,12 @@ import Foundation
 class ViewController: NSViewController {
     // Create new QnA object
     let qna = QnA.init()
-    
+
     @IBOutlet weak var queryBar: NSTextField!
     @IBOutlet var queryOut: NSTextView!
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    @IBOutlet var queryButtonOutlet: NSButton!
+    
     
     override func viewDidLoad() {
         if #available(OSX 10.10, *) {
@@ -24,16 +27,10 @@ class ViewController: NSViewController {
             // Fallback on earlier versions
         }
         queryOut.isEditable = false
-    
+        queryButtonOutlet.toolTip = appDelegate.qnaPath
     // Do any additional setup after loading the view.
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
+    
     @IBAction func clearOutput(sender: Bundle) {
         queryOut.textStorage?.mutableString.setString("")
     }
@@ -41,7 +38,7 @@ class ViewController: NSViewController {
 
     @IBAction func queryButton(sender: AnyObject) {
         //NSLog("We've hit a button!")
-
+        
         if queryBar.stringValue == "" {
             NSLog("Blank String")
             return
