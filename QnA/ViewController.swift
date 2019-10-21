@@ -113,6 +113,11 @@ class ViewController: NSViewController {
         // Log new string
         //NSLog("Sending query: %@", newQuery)
         
+        // Remove temp file
+        deleteFile()
+        // Write query to temp file
+        writeToFile(queryText: newQuery)
+        
         // Add query to textbox
         setqueryOutput("Q: " + newQuery + "\n")
         
@@ -121,9 +126,7 @@ class ViewController: NSViewController {
         
         // Set text view to output
         setqueryOutput(shelloutput)
-        deleteFile()
-        //NSLog("Output: %@", shelloutput)
-        writeToFile(queryText: newQuery)
+        
         
     }
 
