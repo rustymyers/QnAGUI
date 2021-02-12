@@ -56,7 +56,7 @@ class ViewController: NSViewController {
             let fileString = NSString(data: fileData, encoding: String.Encoding.utf8.rawValue)
             // Close file
             fileHandle!.closeFile()
-            return fileString as! String
+            return fileString! as String
         } else {
             return ""
         }
@@ -107,9 +107,9 @@ class ViewController: NSViewController {
         }
         
         // Get unquoted string from text bar
-        guard let newQuery:String = queryBar.stringValue else {
-            return
-        }
+
+        let newQuery:String = queryBar.stringValue
+        
         // Log new string
         //NSLog("Sending query: %@", newQuery)
         
