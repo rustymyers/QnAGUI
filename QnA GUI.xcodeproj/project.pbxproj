@@ -12,26 +12,7 @@
 		16B7E49A1C9060AD007AF74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E4991C9060AD007AF74C /* AppDelegate.swift */; };
 		16B7E49C1C9060AD007AF74C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E49B1C9060AD007AF74C /* ViewController.swift */; };
 		16B7E4A11C9060AD007AF74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16B7E49F1C9060AD007AF74C /* Main.storyboard */; };
-		16B7E4AC1C9060AD007AF74C /* QnATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E4AB1C9060AD007AF74C /* QnATests.swift */; };
-		16B7E4B71C9060AD007AF74C /* QnAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E4B61C9060AD007AF74C /* QnAUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		16B7E4A81C9060AD007AF74C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 16B7E48E1C9060AD007AF74C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 16B7E4951C9060AD007AF74C;
-			remoteInfo = QnA;
-		};
-		16B7E4B31C9060AD007AF74C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 16B7E48E1C9060AD007AF74C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 16B7E4951C9060AD007AF74C;
-			remoteInfo = QnA;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1616E5C6235BB71300E5C3D4 /* QnA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnA.swift; sourceTree = "<group>"; };
@@ -41,30 +22,10 @@
 		16B7E49B1C9060AD007AF74C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		16B7E4A01C9060AD007AF74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16B7E4A21C9060AD007AF74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16B7E4A71C9060AD007AF74C /* QnA GUI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QnA GUI.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		16B7E4AB1C9060AD007AF74C /* QnATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnATests.swift; sourceTree = "<group>"; };
-		16B7E4AD1C9060AD007AF74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16B7E4B21C9060AD007AF74C /* QnA GUI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QnA GUI.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		16B7E4B61C9060AD007AF74C /* QnAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnAUITests.swift; sourceTree = "<group>"; };
-		16B7E4B81C9060AD007AF74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		16B7E4931C9060AD007AF74C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16B7E4A41C9060AD007AF74C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16B7E4AF1C9060AD007AF74C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,8 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				16B7E4981C9060AD007AF74C /* QnA */,
-				16B7E4AA1C9060AD007AF74C /* QnATests */,
-				16B7E4B51C9060AD007AF74C /* QnAUITests */,
 				16B7E4971C9060AD007AF74C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				16B7E4961C9060AD007AF74C /* QnA GUI.app */,
-				16B7E4A71C9060AD007AF74C /* QnA GUI.xctest */,
-				16B7E4B21C9060AD007AF74C /* QnA GUI.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,24 +62,6 @@
 				16A15B041C90A127001A5151 /* Images.xcassets */,
 			);
 			path = QnA;
-			sourceTree = "<group>";
-		};
-		16B7E4AA1C9060AD007AF74C /* QnATests */ = {
-			isa = PBXGroup;
-			children = (
-				16B7E4AB1C9060AD007AF74C /* QnATests.swift */,
-				16B7E4AD1C9060AD007AF74C /* Info.plist */,
-			);
-			path = QnATests;
-			sourceTree = "<group>";
-		};
-		16B7E4B51C9060AD007AF74C /* QnAUITests */ = {
-			isa = PBXGroup;
-			children = (
-				16B7E4B61C9060AD007AF74C /* QnAUITests.swift */,
-				16B7E4B81C9060AD007AF74C /* Info.plist */,
-			);
-			path = QnAUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,42 +84,6 @@
 			productReference = 16B7E4961C9060AD007AF74C /* QnA GUI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		16B7E4A61C9060AD007AF74C /* QnA GUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 16B7E4BE1C9060AD007AF74C /* Build configuration list for PBXNativeTarget "QnA GUITests" */;
-			buildPhases = (
-				16B7E4A31C9060AD007AF74C /* Sources */,
-				16B7E4A41C9060AD007AF74C /* Frameworks */,
-				16B7E4A51C9060AD007AF74C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				16B7E4A91C9060AD007AF74C /* PBXTargetDependency */,
-			);
-			name = "QnA GUITests";
-			productName = QnATests;
-			productReference = 16B7E4A71C9060AD007AF74C /* QnA GUI.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		16B7E4B11C9060AD007AF74C /* QnA GUIUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 16B7E4C11C9060AD007AF74C /* Build configuration list for PBXNativeTarget "QnA GUIUITests" */;
-			buildPhases = (
-				16B7E4AE1C9060AD007AF74C /* Sources */,
-				16B7E4AF1C9060AD007AF74C /* Frameworks */,
-				16B7E4B01C9060AD007AF74C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				16B7E4B41C9060AD007AF74C /* PBXTargetDependency */,
-			);
-			name = "QnA GUIUITests";
-			productName = QnAUITests;
-			productReference = 16B7E4B21C9060AD007AF74C /* QnA GUI.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -188,23 +91,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Rusty Myers";
 				TargetAttributes = {
 					16B7E4951C9060AD007AF74C = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = VQ32N9FEBR;
 						LastSwiftMigration = 0810;
-					};
-					16B7E4A61C9060AD007AF74C = {
-						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0810;
-						TestTargetID = 16B7E4951C9060AD007AF74C;
-					};
-					16B7E4B11C9060AD007AF74C = {
-						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0810;
-						TestTargetID = 16B7E4951C9060AD007AF74C;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -222,8 +116,6 @@
 			projectRoot = "";
 			targets = (
 				16B7E4951C9060AD007AF74C /* QnA GUI */,
-				16B7E4A61C9060AD007AF74C /* QnA GUITests */,
-				16B7E4B11C9060AD007AF74C /* QnA GUIUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,20 +127,6 @@
 			files = (
 				16B7E4A11C9060AD007AF74C /* Main.storyboard in Resources */,
 				16A15B051C90A127001A5151 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16B7E4A51C9060AD007AF74C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16B7E4B01C9060AD007AF74C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,36 +143,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		16B7E4A31C9060AD007AF74C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				16B7E4AC1C9060AD007AF74C /* QnATests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		16B7E4AE1C9060AD007AF74C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				16B7E4B71C9060AD007AF74C /* QnAUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		16B7E4A91C9060AD007AF74C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 16B7E4951C9060AD007AF74C /* QnA GUI */;
-			targetProxy = 16B7E4A81C9060AD007AF74C /* PBXContainerItemProxy */;
-		};
-		16B7E4B41C9060AD007AF74C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 16B7E4951C9060AD007AF74C /* QnA GUI */;
-			targetProxy = 16B7E4B31C9060AD007AF74C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		16B7E49F1C9060AD007AF74C /* Main.storyboard */ = {
@@ -331,6 +180,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -355,7 +205,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -387,6 +237,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -403,7 +254,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -415,9 +266,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = VQ32N9FEBR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QnA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -425,6 +277,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.QnAGUI;
 				PRODUCT_NAME = "QnA GUI";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -433,9 +286,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = VQ32N9FEBR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QnA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -443,63 +297,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.QnAGUI;
 				PRODUCT_NAME = "QnA GUI";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
-		16B7E4BF1C9060AD007AF74C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = QnATests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.clc.QnATests;
-				PRODUCT_NAME = "QnA GUI";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QnA GUI.app/Contents/MacOS/QnA GUI";
-			};
-			name = Debug;
-		};
-		16B7E4C01C9060AD007AF74C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = QnATests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.clc.QnATests;
-				PRODUCT_NAME = "QnA GUI";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QnA GUI.app/Contents/MacOS/QnA GUI";
-			};
-			name = Release;
-		};
-		16B7E4C21C9060AD007AF74C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = QnAUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.clc.QnAUITests;
-				PRODUCT_NAME = "QnA GUI";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = QnA;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		16B7E4C31C9060AD007AF74C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = QnAUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.clc.QnAUITests;
-				PRODUCT_NAME = "QnA GUI";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = QnA;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -520,24 +319,6 @@
 			buildConfigurations = (
 				16B7E4BC1C9060AD007AF74C /* Debug */,
 				16B7E4BD1C9060AD007AF74C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		16B7E4BE1C9060AD007AF74C /* Build configuration list for PBXNativeTarget "QnA GUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				16B7E4BF1C9060AD007AF74C /* Debug */,
-				16B7E4C01C9060AD007AF74C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		16B7E4C11C9060AD007AF74C /* Build configuration list for PBXNativeTarget "QnA GUIUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				16B7E4C21C9060AD007AF74C /* Debug */,
-				16B7E4C31C9060AD007AF74C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
