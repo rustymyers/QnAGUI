@@ -12,6 +12,7 @@
 		16B7E49A1C9060AD007AF74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E4991C9060AD007AF74C /* AppDelegate.swift */; };
 		16B7E49C1C9060AD007AF74C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E49B1C9060AD007AF74C /* ViewController.swift */; };
 		16B7E4A11C9060AD007AF74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16B7E49F1C9060AD007AF74C /* Main.storyboard */; };
+		16C6DFF325DD851B005F51BF /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C6DFF125DD851B005F51BF /* PrefsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		16B7E49B1C9060AD007AF74C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		16B7E4A01C9060AD007AF74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16B7E4A21C9060AD007AF74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16C6DFF125DD851B005F51BF /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
+		16C6DFF625DD9045005F51BF /* QnA GUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QnA GUI.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +41,7 @@
 		16B7E48D1C9060AD007AF74C = {
 			isa = PBXGroup;
 			children = (
+				16C6DFF625DD9045005F51BF /* QnA GUI.entitlements */,
 				16B7E4981C9060AD007AF74C /* QnA */,
 				16B7E4971C9060AD007AF74C /* Products */,
 			);
@@ -54,9 +58,10 @@
 		16B7E4981C9060AD007AF74C /* QnA */ = {
 			isa = PBXGroup;
 			children = (
+				1616E5C6235BB71300E5C3D4 /* QnA.swift */,
 				16B7E4991C9060AD007AF74C /* AppDelegate.swift */,
 				16B7E49B1C9060AD007AF74C /* ViewController.swift */,
-				1616E5C6235BB71300E5C3D4 /* QnA.swift */,
+				16C6DFF125DD851B005F51BF /* PrefsViewController.swift */,
 				16B7E49F1C9060AD007AF74C /* Main.storyboard */,
 				16B7E4A21C9060AD007AF74C /* Info.plist */,
 				16A15B041C90A127001A5151 /* Images.xcassets */,
@@ -98,6 +103,7 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = VQ32N9FEBR;
 						LastSwiftMigration = 1240;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -139,6 +145,7 @@
 				16B7E49C1C9060AD007AF74C /* ViewController.swift in Sources */,
 				1616E5C7235BB71300E5C3D4 /* QnA.swift in Sources */,
 				16B7E49A1C9060AD007AF74C /* AppDelegate.swift in Sources */,
+				16C6DFF325DD851B005F51BF /* PrefsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "QnA GUI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -284,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "QnA GUI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

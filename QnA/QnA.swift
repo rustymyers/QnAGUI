@@ -10,9 +10,10 @@ import Foundation
 import os
     
 class QnA: NSObject {
-    let qnaPath = "/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA"
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
     
     func getQnAPath() -> String {
+        let qnaPath = appDelegate.qnaPath
         return qnaPath
     }
     
@@ -22,7 +23,8 @@ class QnA: NSObject {
         let outpipe = Pipe()
         
         //NSLog("%@", relevance)
-        task.launchPath = qnaPath
+        task.launchPath = getQnAPath()
+        task.arguments = ["-showtypes"]
         task.standardInput = inpipe
         task.standardOutput = outpipe
 
@@ -37,6 +39,4 @@ class QnA: NSObject {
         
         return (standardout! as String)
     }
-    
-    
 }

@@ -13,10 +13,16 @@ import Foundation
 class ViewController: NSViewController {
     // Create new QnA object
     let qna = QnA.init()
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
 
+    @IBAction func runQueryMenuItemSelected(_ sender: Any) {
+        queryButton(sender: appDelegate)
+    }
+    @IBAction func clearOutputMenuItemSelected(_ sender: Bundle) {
+        clearOutput(sender: sender)
+    }
     @IBOutlet weak var queryBar: NSTextField!
     @IBOutlet var queryOut: NSTextView!
-    let appDelegate = NSApplication.shared.delegate as! AppDelegate
     @IBOutlet var queryButtonOutlet: NSButton!
     //this is the file. we will write to and read from it
     let tmpQueryFile = "/tmp/_qna_query.txt"
@@ -111,7 +117,7 @@ class ViewController: NSViewController {
         let newQuery:String = queryBar.stringValue
         
         // Log new string
-        //NSLog("Sending query: %@", newQuery)
+        NSLog("Sending query: %@", newQuery)
         
         // Remove temp file
         deleteFile()
@@ -130,33 +136,6 @@ class ViewController: NSViewController {
         
     }
 
-
-    func shell(_ relevance: String) -> String {
-        let task = Process()
-        let inpipe = Pipe()
-        let outpipe = Pipe()
-        
-        //NSLog("%@", relevance)
-        let qnaPath = qna.getQnAPath()
-        task.launchPath = qnaPath
-        task.arguments = ["-showtypes"]
-        task.standardInput = inpipe
-        task.standardOutput = outpipe
-        task.standardError = outpipe
-
-        inpipe.fileHandleForWriting.write(relevance.data(using: String.Encoding.utf8)!)
-        inpipe.fileHandleForWriting.closeFile()
-        
-        task.launch()
-        // Disabled for large returns
-        // task.waitUntilExit()
-        
-        let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
-        let standardout = NSString(data: outputdata, encoding: String.Encoding.utf8.rawValue)
-        
-        return (standardout! as String)
-    }
-    
     func setqueryOutput(_ text: String = "") {
         queryOut.textStorage?.mutableString.append(text)
         queryOut.scrollToEndOfDocument(self)
