@@ -13,8 +13,10 @@ import Foundation
 class ViewController: NSViewController {
     // Create new QnA object
     let qna = QnA.init()
+    
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
-
+    lazy var window: NSWindow! = self.view.window
+    
     @IBAction func runQueryMenuItemSelected(_ sender: Any) {
         queryButton(sender: appDelegate)
     }
@@ -24,6 +26,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var queryBar: NSTextField!
     @IBOutlet var queryOut: NSTextView!
     @IBOutlet var queryButtonOutlet: NSButton!
+
     //this is the file. we will write to and read from it
     let tmpQueryFile = "/tmp/_qna_query.txt"
     
@@ -32,25 +35,31 @@ class ViewController: NSViewController {
         deleteFile()
     }
     override func viewDidLoad() {
-        if #available(OSX 10.10, *) {
-            super.viewDidLoad()
-        } else {
-            // Fallback on earlier versions
-        }
+        super.viewDidLoad()
+        
         // Enable selection in query output window
         queryOut.isEditable = false
-        // Set the tool top on the query button to qna binary path
-        queryButtonOutlet.toolTip = appDelegate.qnaPath
-
+        
         // Do any additional setup after loading the view.
         queryBar.stringValue = readFile()
+
     }
 
+    override func viewWillAppear() {
+            super.viewWillAppear()
+            let qnaPath = qna.getQnAPath()
+            window?.title = "QnA GUI (\(qnaPath))"
+            // Set the tool top on the query button to qna binary path
+            if queryButtonOutlet.toolTip != nil {
+                queryButtonOutlet.toolTip = qnaPath
+            } else {
+                NSLog("Can't set tooltip")
+            }
+        }
+    
     func readFile() -> String {
         // https://stackoverflow.com/questions/37981375/nsfilehandle-updateatpath-how-can-i-update-file-instead-of-overwriting
         //https://developer.apple.com/documentation/foundation/filehandle/1411131-init
-        // Turn our queryText string into data
-//        let data = queryText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         // Create new filemanager
         let filemanager = FileManager.default
         // Check for the file at the path and create if it doesn't exist
@@ -113,7 +122,6 @@ class ViewController: NSViewController {
         }
         
         // Get unquoted string from text bar
-
         let newQuery:String = queryBar.stringValue
         
         // Log new string
@@ -121,6 +129,7 @@ class ViewController: NSViewController {
         
         // Remove temp file
         deleteFile()
+        
         // Write query to temp file
         writeToFile(queryText: newQuery)
         
@@ -132,8 +141,6 @@ class ViewController: NSViewController {
         
         // Set text view to output
         setqueryOutput(shelloutput)
-        
-        
     }
 
     func setqueryOutput(_ text: String = "") {

@@ -679,9 +679,8 @@
         <scene sceneID="eCI-99-Wa3">
             <objects>
                 <windowController id="vpE-RH-5bo" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="d57-cT-UOY">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="d57-cT-UOY" userLabel="Preferences">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="462" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
                         <view key="contentView" id="YqJ-jr-2db">
@@ -700,10 +699,10 @@
             </objects>
             <point key="canvasLocation" x="-499" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Prefs View Controller-->
         <scene sceneID="kbL-px-ltG">
             <objects>
-                <viewController id="UJN-os-FEQ" sceneMemberID="viewController">
+                <viewController id="UJN-os-FEQ" customClass="PrefsViewController" customModule="QnA_GUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1hd-Jm-aqO">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -717,7 +716,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="QnA GUI" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" userLabel="QnA GUI">
+                    <window key="window" title="QnA GUI" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="186" y="565" width="480" height="270"/>
@@ -754,15 +753,15 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmQ-5g-f30">
                                 <rect key="frame" x="20" y="20" width="590" height="269"/>
                                 <clipView key="contentView" drawsBackground="NO" id="cCe-bG-ojG">
-                                    <rect key="frame" x="1" y="1" width="573" height="267"/>
+                                    <rect key="frame" x="1" y="1" width="588" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="X8r-Um-0gH">
-                                            <rect key="frame" x="0.0" y="0.0" width="573" height="267"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="588" height="267"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="573" height="267"/>
+                                            <size key="minSize" width="588" height="267"/>
                                             <size key="maxSize" width="590" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -773,11 +772,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="XAK-nL-jgc">
-                                    <rect key="frame" x="574" y="1" width="15" height="267"/>
+                                    <rect key="frame" x="573" y="1" width="16" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nin-oG-onR">
+                            <button toolTip="QnAPATH" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nin-oG-onR">
                                 <rect key="frame" x="546" y="290" width="71" height="32"/>
                                 <buttonCell key="cell" type="push" title="Query" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oui-TC-uyF">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -810,6 +809,7 @@ DQ
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="hQW-nX-Zie"/>
             </objects>
             <point key="canvasLocation" x="150" y="688.5"/>
         </scene>

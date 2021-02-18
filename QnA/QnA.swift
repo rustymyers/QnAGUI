@@ -10,11 +10,35 @@ import Foundation
 import os
     
 class QnA: NSObject {
-    let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    var qnaPath = String()
+    //TODO make qna_file_paths a preference, ordered list of preference?
+    var qna_file_paths:[String] = ["/Library/BESAgent/BESAgent.app/Contents/MacOS/QnA","QnA","/usr/local/bin/QnA"]
     
     func getQnAPath() -> String {
-        let qnaPath = appDelegate.qnaPath
-        return qnaPath
+        // Create a FileManager instance
+        let fileManager = FileManager.default
+        
+        // Check if file exists, given its path
+        for qna_test_Path in qna_file_paths {
+            // Example: http://stackoverflow.com/questions/30097521/messagebox-from-daemon-in-swift-os-x
+            if fileManager.fileExists(atPath: qna_test_Path) {
+                print("File exists: \(qna_test_Path)")
+                self.qnaPath = qna_test_Path
+                break
+            } else {
+                print("File not found: \(qna_test_Path)")
+                self.qnaPath = ""
+            }
+        }
+        if self.qnaPath == "" {
+            let alert:NSAlert = NSAlert();
+            alert.messageText = "Missing QnA Binary";
+            alert.informativeText = "QnA GUI.app could not find the QnA binary! Please install and try again.";
+            alert.runModal();
+            exit(3)
+
+        } 
+        return self.qnaPath
     }
     
     func shell(relevance: String) -> String {
@@ -24,6 +48,7 @@ class QnA: NSObject {
         
         //NSLog("%@", relevance)
         task.launchPath = getQnAPath()
+        //TODO Make -showtypes a preference?
         task.arguments = ["-showtypes"]
         task.standardInput = inpipe
         task.standardOutput = outpipe
