@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1616E5C7235BB71300E5C3D4 /* QnA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616E5C6235BB71300E5C3D4 /* QnA.swift */; };
 		16A15B051C90A127001A5151 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A15B041C90A127001A5151 /* Images.xcassets */; };
+		16B262FA27FB648A0011C920 /* SimpleNSTableViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B262F927FB648A0011C920 /* SimpleNSTableViewList.swift */; };
 		16B7E49A1C9060AD007AF74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E4991C9060AD007AF74C /* AppDelegate.swift */; };
 		16B7E49C1C9060AD007AF74C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7E49B1C9060AD007AF74C /* ViewController.swift */; };
 		16B7E4A11C9060AD007AF74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16B7E49F1C9060AD007AF74C /* Main.storyboard */; };
@@ -17,7 +18,9 @@
 
 /* Begin PBXFileReference section */
 		1616E5C6235BB71300E5C3D4 /* QnA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnA.swift; sourceTree = "<group>"; };
+		166CAA5F29082B6B00D30E04 /* QnA GUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QnA GUI.entitlements"; sourceTree = "<group>"; };
 		16A15B041C90A127001A5151 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		16B262F927FB648A0011C920 /* SimpleNSTableViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNSTableViewList.swift; sourceTree = "<group>"; };
 		16B7E4961C9060AD007AF74C /* QnA GUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QnA GUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B7E4991C9060AD007AF74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16B7E49B1C9060AD007AF74C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		16B7E48D1C9060AD007AF74C = {
 			isa = PBXGroup;
 			children = (
+				166CAA5F29082B6B00D30E04 /* QnA GUI.entitlements */,
 				16B7E4981C9060AD007AF74C /* QnA */,
 				16B7E4971C9060AD007AF74C /* Products */,
 			);
@@ -59,6 +63,7 @@
 				1616E5C6235BB71300E5C3D4 /* QnA.swift */,
 				16B7E4991C9060AD007AF74C /* AppDelegate.swift */,
 				16B7E49B1C9060AD007AF74C /* ViewController.swift */,
+				16B262F927FB648A0011C920 /* SimpleNSTableViewList.swift */,
 				16C6DFF125DD851B005F51BF /* PrefsViewController.swift */,
 				16B7E49F1C9060AD007AF74C /* Main.storyboard */,
 				16B7E4A21C9060AD007AF74C /* Info.plist */,
@@ -94,7 +99,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = "Rusty Myers";
 				TargetAttributes = {
 					16B7E4951C9060AD007AF74C = {
@@ -144,6 +149,7 @@
 				1616E5C7235BB71300E5C3D4 /* QnA.swift in Sources */,
 				16B7E49A1C9060AD007AF74C /* AppDelegate.swift in Sources */,
 				16C6DFF325DD851B005F51BF /* PrefsViewController.swift in Sources */,
+				16B262FA27FB648A0011C920 /* SimpleNSTableViewList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +198,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -247,6 +254,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -270,14 +278,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "QnA GUI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.7;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = QnA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.QnAGUI;
@@ -290,14 +301,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "QnA GUI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.7;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = QnA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.QnAGUI;

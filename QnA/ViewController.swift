@@ -137,7 +137,7 @@ class ViewController: NSViewController {
         setqueryOutput("Q: " + newQuery + "\n")
         
         // Send query to QnA Object and get output
-        let shelloutput = qna.shell(relevance: newQuery)
+        let shelloutput = (try? qna.shell(relevance: newQuery)) ?? "Error in shell!"
         
         // Set text view to output
         setqueryOutput(shelloutput)
