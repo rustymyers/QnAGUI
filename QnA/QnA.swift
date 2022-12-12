@@ -71,7 +71,8 @@ class QnA: NSObject {
 
         let outputdata = outpipe.fileHandleForReading.readDataToEndOfFile()
         let standardout = String(data: outputdata, encoding: String.Encoding.utf8)
-
+        
+        
         return (standardout! as String)
     }
 }
